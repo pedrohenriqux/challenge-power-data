@@ -137,5 +137,29 @@ and cost-free for the expected traffic volume of the assessment.
 * Correlated Data: To ensure fast response times, the API returns URLs for related resources (like films/vehicles)
 rather than resolving names recursively, which would significantly degrade performance without a complex asynchronous architecture.
 
+## 📚 References & Resources
+
+This project was built on the shoulders of giants. Below are the key resources and documentation used during development:
+
+**Google Cloud & Serverless:**
+* [Google Cloud Functions Python CodeLab](https://codelabs.developers.google.com/codelabs/cloud-functions-python-http?hl=pt-br#0)
+* [Setup and Invoke Cloud Functions](https://medium.com/google-cloud/setup-and-invoke-cloud-functions-using-python-e801a8633096)
+* [Install Google Cloud SDK](https://docs.cloud.google.com/sdk/docs/install-sdk?hl=pt-br#deb)
+
+**Python Requests & APIs:**
+* [Using Python Requests Module](https://www.nylas.com/blog/use-python-requests-module-rest-apis/)
+* [Making HTTP Requests in Python](https://www.datacamp.com/tutorial/making-http-requests-in-python)
+* [Simplifying REST API Requests](https://medium.com/@emanueleorecchio/simplifying-rest-api-requests-in-python-with-a-generic-function-97f1333a7d8e)
+
+**Flask Framework:**
+* [Processing Incoming Request Data in Flask](https://www.digitalocean.com/community/tutorials/processing-incoming-request-data-in-flask)
+* [Flask Get Query Parameters](https://www.browserstack.com/guide/flask-get-query-parameters)
+
+**Data Processing Logic:**
+* [How to Sort a List in Python](https://www.freecodecamp.org/news/python-sort-how-to-sort-a-list-in-python/)
+* [Sorting Dictionaries in Python](https://realpython.com/sort-python-dictionary/)
+* [Python Dictionary Comprehension](https://www.datacamp.com/tutorial/python-dictionary-comprehension)
+* [Convert String to Float](https://www.digitalocean.com/community/tutorials/python-convert-string-to-float)
+
 ---
 Developed by Pedro H. Sousa for the PowerOfData Challenge.

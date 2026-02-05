@@ -131,5 +131,29 @@ Serverless e sem custos para o volume de tráfego esperado na avaliação.
 (como filmes/veículos) em vez de resolver os nomes recursivamente, o que degradaria significativamente a performance
 sem uma arquitetura assíncrona complexa.
 
+## 📚 Referências e Recursos
+
+Este projeto foi construído com base em documentação sólida. Abaixo estão os principais materiais de estudo utilizados:
+
+**Google Cloud & Serverless:**
+* [CodeLab: Google Cloud Functions com Python](https://codelabs.developers.google.com/codelabs/cloud-functions-python-http?hl=pt-br#0)
+* [Configurando e Invocando Cloud Functions](https://medium.com/google-cloud/setup-and-invoke-cloud-functions-using-python-e801a8633096)
+* [Instalação do Google Cloud SDK](https://docs.cloud.google.com/sdk/docs/install-sdk?hl=pt-br#deb)
+
+**Requisições Python & APIs:**
+* [Uso do Módulo Requests](https://www.nylas.com/blog/use-python-requests-module-rest-apis/)
+* [Fazendo Requisições HTTP em Python](https://www.datacamp.com/tutorial/making-http-requests-in-python)
+* [Simplificando Requisições REST](https://medium.com/@emanueleorecchio/simplifying-rest-api-requests-in-python-with-a-generic-function-97f1333a7d8e)
+
+**Framework Flask:**
+* [Processando Dados de Requisições no Flask](https://www.digitalocean.com/community/tutorials/processing-incoming-request-data-in-flask)
+* [Obtendo Parâmetros de Consulta (Query Params)](https://www.browserstack.com/guide/flask-get-query-parameters)
+
+**Lógica e Processamento de Dados:**
+* [Como Ordenar Listas em Python](https://www.freecodecamp.org/news/python-sort-how-to-sort-a-list-in-python/)
+* [Ordenação de Dicionários](https://realpython.com/sort-python-dictionary/)
+* [Dictionary Comprehension](https://www.datacamp.com/tutorial/python-dictionary-comprehension)
+* [Conversão de String para Float](https://www.digitalocean.com/community/tutorials/python-convert-string-to-float)
+
 ---
 Desenvolvido por Pedro H. Sousa para o Desafio PowerOfData.
