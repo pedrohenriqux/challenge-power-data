@@ -1,0 +1,66 @@
+swagger: '2.0'
+info:
+  title: Star Wars Explorer API
+  description: API for searching, filtering, and sorting Star Wars resources. Built on Google Cloud Functions.
+  version: 1.0.0
+host: star-wars-api-xst3xocumq-uc.a.run.app
+schemes:
+  - https
+produces:
+  - application/json
+securityDefinitions:
+  api_key:
+    type: "apiKey"
+    name: "X-API-KEY"
+    in: "header"
+security:
+  - api_key: []
+paths:
+  /:
+    get:
+      summary: Get Star Wars Data
+      operationId: getStarWarsData
+      x-google-backend:
+        address: https://star-wars-api-xst3xocumq-uc.a.run.app
+      parameters:
+        - in: query
+          name: resource
+          type: string
+          description: Resource type (people, planets, starships, etc.)
+          default: people
+        - in: query
+          name: search
+          type: string
+          description: Search term within the resource name.
+        - in: query
+          name: page
+          type: integer
+          description: Page number (for standard pagination).
+        - in: query
+          name: order_by
+          type: string
+          description: Field to sort by (e.g., mass, length).
+        - in: query
+          name: direction
+          type: string
+          enum: [asc, desc]
+          description: Sort direction.
+        - in: query
+          name: filter_key
+          type: string
+          description: Attribute key to filter (exact match).
+        - in: query
+          name: filter_value
+          type: string
+          description: Attribute value to match.
+      responses:
+        '200':
+          description: Successful response containing Star Wars data.
+          schema:
+            type: object
+        '400':
+          description: Invalid resource or parameters.
+        '401':
+          description: Unauthorized (Missing or Invalid API Key).
+        '502':
+          description: External API Error (SWAPI unreachable).
