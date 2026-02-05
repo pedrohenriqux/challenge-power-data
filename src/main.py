@@ -1,8 +1,6 @@
 import functions_framework
-import os
 
 from flask import jsonify, Request
-from functools import wraps
 
 from services import swapi_data
 from utils import apply_filter, process_sort, RESOURCE_CONFIG
@@ -28,9 +26,19 @@ def auth(request: Request):
 
 @functions_framework.http
 def star_wars_api(request: Request):
+    cors_headers = {
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'GET, OPTIONS',
+        'Access-Control-Allow-Headers': 'Content-Type, X-API-KEY',
+        'Access-Control-Max-Age': '3600'
+    }
+
+    if request.method == 'OPTIONS':
+        return '', 204, cors_headers
+
     auth_error = auth(request)
     if auth_error:
-        return auth_error
+        return auth_error[0], auth_error[1], cors_headers
 
     search_query = request.args.get('search')
     resource = request.args.get('resource', 'people')
@@ -45,7 +53,7 @@ def star_wars_api(request: Request):
         return jsonify({
             "error": "Resource invalid or not supported.",
             "available_resources": list(RESOURCE_CONFIG.keys())
-        }), 400
+        }), 400, cors_headers
 
     fetch_all = True if (filter_key or order_by) else False
 
@@ -59,7 +67,7 @@ def star_wars_api(request: Request):
     data = swapi_data(resource, params = params, fetch_all = fetch_all)
 
     if not data:
-        return jsonify({"error": "No data found or External API error"}), 502
+        return jsonify({"error": "No data found or External API error"}), 502, cors_headers
 
     results = data.get("results", [])
 
@@ -72,4 +80,4 @@ def star_wars_api(request: Request):
         data['results'] = results
         data['count'] = len(results)
 
-    return jsonify(data), 200
+    return jsonify(data), 200, cors_headers
